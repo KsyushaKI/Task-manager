@@ -1,8 +1,11 @@
 MANAGE := poetry run python3 manage.py
+PORT := 8000
 
-PORT ?= 8000
+dev:
+	poetry run python3 manage.py runserver 0.0.0.0:8000
+
 start:
-	poetry run python3 manage.py runserver 0.0.0.0:$(PORT)
+	gunicorn task_manager.wsgi --bind 0.0.0.0:$(PORT)
 
 test:
 	@poetry run pytest
@@ -30,4 +33,4 @@ lint:
 tests-cov:
 	poetry run pytest --cov=task_manager --cov-report xml
 
-.PHONY: start test setup install clean migrate makemigrations shell lint tests-cov
+.PHONY: start test setup install clean migrate makemigrations shell lint tests-cov dev

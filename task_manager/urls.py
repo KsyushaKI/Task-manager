@@ -23,4 +23,3 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='articles'),
     path('admin/', admin.site.urls),
 ]
-

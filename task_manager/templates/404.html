@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<main class="flex-grow-1">
+    <div class="container-lg mt-3">
+        <h1>{% trans 'HeaderPageNotFound' %}</h1>
+        <p>{% trans 'MessagePageNotFound' %}</p>
+        <p><a href="/">{% trans 'LinkToHomePage' %}</a></p>
+    </div>
+</main>
+{% endblock %}
