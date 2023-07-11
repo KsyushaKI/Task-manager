@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+<h1 class="my-4">Пользователи</h1>
+    
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Имя пользователя</th>
+    <th>Полное имя</th>
+    <th>Дата создания</th>
+    <th></th>
+  </tr>
+</thead>
+
+<tbody>
+    {% for user in object_list %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.get_full_name }}</td>
+      <td>{{ user.date_joined }}</td>
+      <td>
+        <a href="/users/{{ user.id }}/update/">Изменить</a>
+        <br>
+        <a href="/users/{{ user.id }}/delete/">Удалить</a>
+      </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<div class="pagination">
+  <span class="step-links">
+      {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
+
+{% endblock %}

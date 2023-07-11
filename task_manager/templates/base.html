@@ -25,23 +25,60 @@
         <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                <a class="nav-link" href="/users/">{% trans 'Users' %}</a>
+                    <a class="nav-link" href="/users/">{% trans 'Users' %}</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/statuses/">Статусы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/labels/">Метки</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tasks/">Задачи</a>
+                </li>
+                {% endif %}
             </ul>
+
+            {% if not user.is_authenticated %}
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link" href="/login/">{% trans 'LogIn' %}</a>
+                    <a class="nav-link" href="/login/">{% trans 'LogIn' %}</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/users/create/">{% trans 'SignUp' %}</a>
+                    <a class="nav-link" href="/users/create/">{% trans 'SignUp' %}</a>
                 </li>
             </ul>
+            {% else %}
+            <ul class="navbar-nav">
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <input class="btn nav-link" type="submit" value="Выход">
+                </form>
+            </ul>
+            {% endif %}
         </div>
     </nav>
     {% endblock nav %}
-    
+    <div class="container wrapper flex-grow-1">
+        {% block messages %}
+
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">✖</button>
+            
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% endblock messages %}
+
     {% block content %}
     {% endblock %}
+
+    </div>
 
     <footer>
         <div class="container my-5 pt-4 border-top">

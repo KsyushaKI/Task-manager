@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_css %}
+
+{% block content %}
+<h1 class="my-4">Изменение пользователя</h1>
+
+<p><a href="{% url 'change_password' %}">Изменить пароль</a></p>
+
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-primary" type="submit" value="Изменить">
+</form>
+
+{% endblock %}
