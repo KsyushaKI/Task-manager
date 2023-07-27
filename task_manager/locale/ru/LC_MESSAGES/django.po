@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 16:16+0300\n"
+"POT-Creation-Date: 2023-07-13 22:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,48 +20,194 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: settings.py:125
+#: settings.py:108
 msgid "English"
-msgstr "Английский"
+msgstr ""
 
-#: settings.py:126
+#: settings.py:109
 msgid "Russian"
 msgstr "Русский"
 
 #: templates/404.html:7
-msgid "HeaderPageNotFound"
+msgid "Page Not Found"
 msgstr "Страница не найдена"
 
 #: templates/404.html:8
-msgid "MessagePageNotFound"
+msgid "What you are looking for is not here."
 msgstr "Здесь нет того, что вы ищете."
 
 #: templates/404.html:9
-msgid "LinkToHomePage"
+msgid "Go back to the main page"
 msgstr "Вернуться на главную"
 
 #: templates/base.html:14
-msgid "AppDescription"
+msgid ""
+"Task Manager is a task management system. It allows you to set tasks, "
+"appoint executors and change their statuses."
 msgstr ""
 "Менеджер задач – система управления задачами. Она позволяет ставить задачи, "
 "назначать исполнителей и менять их статусы."
 
 #: templates/base.html:15 templates/base.html:21
-msgid "AppName"
+msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: templates/base.html:28
+#: templates/base.html:28 templates/users/customuser_list.html:5
 msgid "Users"
 msgstr "Пользователи"
 
-#: templates/base.html:33
-msgid "LogIn"
+#: templates/base.html:32
+msgid "Statuses"
+msgstr "Статусы"
+
+#: templates/base.html:35
+msgid "Labels"
+msgstr "Метки"
+
+#: templates/base.html:38
+msgid "Tasks"
+msgstr "Задачи"
+
+#: templates/base.html:46
+msgid "Log in"
 msgstr "Вход"
 
-#: templates/base.html:36
-msgid "SignUp"
+#: templates/base.html:49
+msgid "Sign up"
 msgstr "Регистрация"
 
-#: templates/index.html:9
-msgid "Greetings"
+#: templates/base.html:56
+msgid "Log out"
+msgstr "Выход"
+
+#: templates/index.html:11
+msgid "Hello"
+msgstr "Приветствуем"
+
+#: templates/index.html:13
+msgid "Welcome to the 'Task Manager' app"
 msgstr "Добро пожаловать в приложение 'Менеджер задач'"
+
+#: templates/login.html:8
+msgid "Authorization"
+msgstr "Вход"
+
+#: templates/login.html:14
+msgid "Log In"
+msgstr "Войти"
+
+#: templates/users/confirm_delete.html:5
+msgid "Deleting a user"
+msgstr "Удаление пользователя"
+
+#: templates/users/confirm_delete.html:6
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: templates/users/confirm_delete.html:9
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: templates/users/customuser_list.html:11
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: templates/users/customuser_list.html:12
+msgid "Full name"
+msgstr "Полное имя"
+
+#: templates/users/customuser_list.html:13
+msgid "Creation date"
+msgstr "Дата создания"
+
+#: templates/users/customuser_list.html:29
+msgid "Edit"
+msgstr "Изменить"
+
+#: templates/users/customuser_list.html:31
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/users/customuser_list.html:45
+msgid "First"
+msgstr "Первая"
+
+#: templates/users/customuser_list.html:46
+msgid "Previous"
+msgstr "Предыдущая"
+
+#: templates/users/customuser_list.html:50
+msgid "Page"
+msgstr "Страница"
+
+#: templates/users/customuser_list.html:50
+msgid "of"
+msgstr "из"
+
+#: templates/users/customuser_list.html:54
+msgid "Next"
+msgstr "Следующая"
+
+#: templates/users/customuser_list.html:55
+msgid "Last"
+msgstr "Последняя"
+
+#: templates/users/password_change.html:8 templates/users/update.html:10
+msgid "Change Password"
+msgstr "Изменение пароля"
+
+#: templates/users/password_change.html:12 templates/users/update.html:15
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/users/signup.html:8
+msgid "Registration"
+msgstr "Регистрация"
+
+#: templates/users/signup.html:12
+msgid "Sign Up"
+msgstr "Зарегистрировать"
+
+#: templates/users/update.html:8
+msgid "User change"
+msgstr "Изменение пользователя"
+
+#: users/forms.py:8
+msgid "First name"
+msgstr "Имя"
+
+#: users/forms.py:9
+msgid "Last name"
+msgstr "Фамилия"
+
+#: users/views.py:24
+msgid "User successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: users/views.py:33
+msgid "You are not authenticated! Please log in."
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: users/views.py:42
+msgid "You do not have permission to change another user."
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: users/views.py:57
+msgid "User changed successfully"
+msgstr "Пользователь успешно изменен"
+
+#: users/views.py:65
+msgid "Password changed successfully"
+msgstr "Пароль успешно изменен"
+
+#: users/views.py:74
+msgid "User deleted successfully"
+msgstr "Пользователь успешно удален"
+
+#: views.py:14
+msgid "Successfully login"
+msgstr "Вы залогинены"
+
+#: views.py:21
+msgid "Successfully logout"
+msgstr "Вы разлогинены"

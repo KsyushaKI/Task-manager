@@ -9,7 +9,7 @@ start:
 	gunicorn task_manager.wsgi --bind 0.0.0.0:$(PORT)
 
 test:
-	@poetry run pytest
+	@$(MANAGE) test
 
 setup: db-clean install migrate
 

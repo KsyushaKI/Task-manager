@@ -1,55 +1,59 @@
 {% extends "base.html" %}
-
 {% load i18n %}
 
 {% block content %}
+<h1 class="my-4">{% trans 'Users' %}</h1>
 
-<h1 class="my-4">Пользователи</h1>
-    
 <table class="table table-striped">
 <thead>
   <tr>
     <th>ID</th>
-    <th>Имя пользователя</th>
-    <th>Полное имя</th>
-    <th>Дата создания</th>
+    <th>{% trans 'Username' %}</th>
+    <th>{% trans 'Full name' %}</th>
+    <th>{% trans 'Creation date' %}</th>
     <th></th>
   </tr>
 </thead>
 
 <tbody>
-    {% for user in object_list %}
+    {% for u in object_list %}
     <tr>
-      <td>{{ user.id }}</td>
-      <td>{{ user.username }}</td>
-      <td>{{ user.get_full_name }}</td>
-      <td>{{ user.date_joined }}</td>
+      <td>{{ u.id }}</td>
+      <td>{{ u.username }}</td>
+      <td>{{ u.get_full_name }}</td>
+      <td>{{ u.date_joined }}</td>
+      
       <td>
-        <a href="/users/{{ user.id }}/update/">Изменить</a>
-        <br>
-        <a href="/users/{{ user.id }}/delete/">Удалить</a>
+        {% if user.is_authenticated %}
+        {% if user == u %}
+          <a href="{% url 'user_update' u.id %}">{% trans 'Edit' %}</a>
+          <br>
+          <a href="{% url 'user_delete' u.id %}">{% trans 'Delete' %}</a>
+        {% endif %}
+        {% endif %}
       </td>
+
     </tr>
     {% endfor %}
+
 </tbody>
 </table>
 
 <div class="pagination">
   <span class="step-links">
       {% if page_obj.has_previous %}
-          <a href="?page=1">&laquo; first</a>
-          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        <span><a href="?page=1">&laquo; {% trans 'First' %}</a></span>
+        <span><a href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></span>
       {% endif %}
 
       <span class="current">
-          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        {% trans 'Page' %} {{ page_obj.number }} {% trans 'of' %} {{ page_obj.paginator.num_pages }}.
       </span>
 
       {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">next</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        <span><a href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></span>
+        <span><a href="?page={{ page_obj.paginator.num_pages }}">{% trans 'Last' %} &raquo;</a></span>
       {% endif %}
   </span>
 </div>
-
 {% endblock %}

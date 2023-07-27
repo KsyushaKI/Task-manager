@@ -11,31 +11,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{% trans 'AppDescription' %}">
-    <title>{% trans 'AppName' %}</title>
+    <meta name="description" content="{% trans 'Task Manager is a task management system. It allows you to set tasks, appoint executors and change their statuses.' %}">
+    <title>{% trans 'Task Manager' %}</title>
     
   </head>
     <body class="d-flex flex-column min-vh-100" data-new-gr-c-s-check-loaded="14.1113.0" data-gr-ext-installed="">
     {% block nav %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-        <a class="navbar-brand" href="/">{% trans 'AppName' %}</a>
+        <a class="navbar-brand" href="{% url 'home' %}">{% trans 'Task Manager' %}</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/users/">{% trans 'Users' %}</a>
+                    <a class="nav-link" href="{% url 'users_list' %}">{% trans 'Users' %}</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/statuses/">Статусы</a>
+                    <a class="nav-link" href="/statuses/">{% trans 'Statuses' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/labels/">Метки</a>
+                    <a class="nav-link" href="/labels/">{% trans 'Labels' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/tasks/">Задачи</a>
+                    <a class="nav-link" href="/tasks/">{% trans 'Tasks' %}</a>
                 </li>
                 {% endif %}
             </ul>
@@ -43,17 +43,17 @@
             {% if not user.is_authenticated %}
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login/">{% trans 'LogIn' %}</a>
+                    <a class="nav-link" href="{% url 'login' %}">{% trans 'Log in' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/users/create/">{% trans 'SignUp' %}</a>
+                    <a class="nav-link" href="{% url 'signup' %}">{% trans 'Sign up' %}</a>
                 </li>
             </ul>
             {% else %}
             <ul class="navbar-nav">
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
-                    <input class="btn nav-link" type="submit" value="Выход">
+                    <input class="btn nav-link" type="submit" value="{% trans 'Log out' %}">
                 </form>
             </ul>
             {% endif %}
@@ -61,19 +61,15 @@
     </nav>
     {% endblock nav %}
     <div class="container wrapper flex-grow-1">
-        {% block messages %}
+    {% block messages %}
 
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible" role="alert">
-            {{message}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">✖</button>
-            
-        </div>
-        {% endfor %}
-        {% endif %}
+    {% if messages %}
+    {% for message in messages %}
+    {% bootstrap_alert message alert_type=message.tags %}
+    {% endfor %}
+    {% endif %}
 
-        {% endblock messages %}
+    {% endblock messages %}
 
     {% block content %}
     {% endblock %}

@@ -1,17 +1,18 @@
-from .forms import CustomUserCreationForm
+from task_manager.users.forms import CustomUserCreationForm
+from task_manager.users.models import CustomUser
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
-from django.urls import reverse_lazy
-from .models import CustomUser
 from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.mixins import AccessMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.contrib.auth.mixins import AccessMixin
+from django.urls import reverse_lazy
 from django.shortcuts import redirect
-# from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.utils.translation import gettext_lazy as _
 
 
 class UsersListView(ListView):
-    paginate_by = 25
+
+    paginate_by = 10
     model = CustomUser
 
 
@@ -20,7 +21,7 @@ class SignUpView(SuccessMessageMixin, CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'users/signup.html'
-    success_message = 'Пользователь успешно зарегистрирован'
+    success_message = _('User successfully registered')
 
 
 class UserRequiredMixin(AccessMixin):
@@ -29,16 +30,16 @@ class UserRequiredMixin(AccessMixin):
         if not request.user.is_authenticated:
             messages.warning(
                 request,
-                'Вы не авторизованы! Пожалуйста, выполните вход.',
+                _('You are not authenticated! Please log in.'),
                 extra_tags='danger',
             )
-            return self.handle_no_permission()
+            return redirect('login')
 
         if request.user.is_authenticated:
             if request.user != self.get_object():
                 messages.warning(
                     request,
-                    'У вас нет прав для изменения другого пользователя.',
+                    _('You do not have permission to change another user.'),
                     extra_tags='danger',
                 )
                 return redirect('users_list')
@@ -50,24 +51,24 @@ class UserUpdateView(UserRequiredMixin, SuccessMessageMixin, UpdateView):
 
     model = CustomUser
     success_url = reverse_lazy('users_list')
-    template_name = 'users/update.html'
     login_url = '/login/'
+    template_name = 'users/update.html'
     fields = ['first_name', 'last_name', 'username']
-    success_message = 'Пользователь успешно изменен'
+    success_message = _('User changed successfully')
 
 
 class UserChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+
+    model = CustomUser
     success_url = reverse_lazy('users_list')
     template_name = 'users/password_change.html'
-    success_message = 'Пароль успешно изменен'
-    model = CustomUser
+    success_message = _('Password changed successfully')
 
 
 class UserDeleteView(UserRequiredMixin, SuccessMessageMixin, DeleteView):
 
     model = CustomUser
     success_url = reverse_lazy('users_list')
-    template_name = 'users/confirm_delete.html'
     login_url = '/login/'
-    redirect_field_name = 'login'
-    success_message = 'Пользователь успешно удален'
+    template_name = 'users/confirm_delete.html'
+    success_message = _('User deleted successfully')
