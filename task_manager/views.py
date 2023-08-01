@@ -6,11 +6,14 @@ from django.utils.translation import gettext_lazy as _
 
 
 class IndexView(TemplateView):
+
     template_name = 'index.html'
 
 
 class SignIn(SuccessMessageMixin, LoginView):
-    template_name = 'login.html'
+
+    template_name = 'apps_forms.html'
+    extra_context = {'title': _('Authorization'), 'button_value': _('Log In')}
     success_message = _('Successfully login')
 
 

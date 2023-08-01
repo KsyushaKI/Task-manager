@@ -11,16 +11,17 @@ from django.utils.translation import gettext_lazy as _
 
 
 class UsersListView(ListView):
-
-    paginate_by = 10
+   
     model = CustomUser
+    paginate_by = 10
 
 
 class SignUpView(SuccessMessageMixin, CreateView):
 
     form_class = CustomUserCreationForm
+    extra_context = {'title': _('Registration'), 'button_value': _('Sign Up')}
     success_url = reverse_lazy('login')
-    template_name = 'users/signup.html'
+    template_name = 'apps_forms.html'
     success_message = _('User successfully registered')
 
 
@@ -50,9 +51,10 @@ class UserRequiredMixin(AccessMixin):
 class UserUpdateView(UserRequiredMixin, SuccessMessageMixin, UpdateView):
 
     model = CustomUser
+    extra_context = {'title': _('User change'), 'button_value': _('Change'), 'additional_info': True}
     success_url = reverse_lazy('users_list')
     login_url = '/login/'
-    template_name = 'users/update.html'
+    template_name = 'apps_forms.html'
     fields = ['first_name', 'last_name', 'username']
     success_message = _('User changed successfully')
 
@@ -60,15 +62,17 @@ class UserUpdateView(UserRequiredMixin, SuccessMessageMixin, UpdateView):
 class UserChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 
     model = CustomUser
+    extra_context = {'title': _('Change password'), 'button_value': _('Change')}
     success_url = reverse_lazy('users_list')
-    template_name = 'users/password_change.html'
+    template_name = 'apps_forms.html'
     success_message = _('Password changed successfully')
 
 
 class UserDeleteView(UserRequiredMixin, SuccessMessageMixin, DeleteView):
 
     model = CustomUser
+    extra_context = {'title': _('Deleting user')}
     success_url = reverse_lazy('users_list')
     login_url = '/login/'
-    template_name = 'users/confirm_delete.html'
+    template_name = 'confirm_delete.html'
     success_message = _('User deleted successfully')

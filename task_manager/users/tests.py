@@ -12,7 +12,7 @@ class UsersSignUpViewTest(TestCase):
     def test_view_uses_correct_template_and_url_accessible_by_name(self):
         resp = self.client.get(reverse('signup'))
         self.assertEqual(resp.status_code, 200)
-        self.assertTemplateUsed(resp, 'users/signup.html')
+        self.assertTemplateUsed(resp, 'apps_forms.html')
 
     def test_signup_user(self):
         resp = self.client.post(
@@ -94,7 +94,7 @@ class UsersUpdateViewTest(TestCase):
         self.client.force_login(user)
         resp = self.client.get(reverse('user_update', kwargs={'pk': 1}))
         self.assertEqual(resp.status_code, 200)
-        self.assertTemplateUsed(resp, 'users/update.html')
+        self.assertTemplateUsed(resp, 'apps_forms.html')
 
     def test_redirect_if_user_is_not_log_in(self):
         resp = self.client.get(reverse('user_update', kwargs={'pk': 1}))
@@ -154,7 +154,7 @@ class UsersDeleteViewTest(TestCase):
         self.client.force_login(user)
         resp = self.client.get(reverse('user_delete', kwargs={'pk': user.id}))
         self.assertEqual(resp.status_code, 200)
-        self.assertTemplateUsed(resp, 'users/confirm_delete.html')
+        self.assertTemplateUsed(resp, 'confirm_delete.html')
 
     def test_redirect_if_user_is_not_log_in(self):
         resp = self.client.get(reverse('user_delete', kwargs={'pk': 1}))

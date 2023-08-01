@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "pagination.html" %}
 {% load i18n %}
 
 {% block content %}
@@ -21,7 +21,7 @@
       <td>{{ u.id }}</td>
       <td>{{ u.username }}</td>
       <td>{{ u.get_full_name }}</td>
-      <td>{{ u.date_joined }}</td>
+      <td>{{ u.date_joined|date:"d.m.Y" }}</td>
       
       <td>
         {% if user.is_authenticated %}
@@ -39,21 +39,4 @@
 </tbody>
 </table>
 
-<div class="pagination">
-  <span class="step-links">
-      {% if page_obj.has_previous %}
-        <span><a href="?page=1">&laquo; {% trans 'First' %}</a></span>
-        <span><a href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></span>
-      {% endif %}
-
-      <span class="current">
-        {% trans 'Page' %} {{ page_obj.number }} {% trans 'of' %} {{ page_obj.paginator.num_pages }}.
-      </span>
-
-      {% if page_obj.has_next %}
-        <span><a href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></span>
-        <span><a href="?page={{ page_obj.paginator.num_pages }}">{% trans 'Last' %} &raquo;</a></span>
-      {% endif %}
-  </span>
-</div>
 {% endblock %}

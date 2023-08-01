@@ -5,10 +5,15 @@
 {% load i18n %}
 
 {% block content %}
-<h1 class="my-4">{% trans 'Registration' %}</h1>
+<h1 class="my-4">{{ title }}</h1>
+
+{% if additional_info %}
+<h4><a href="{% url 'change_password' %}">{% trans 'Change Password' %}</a></h4>
+{% endif %}
+
 <form method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="{% trans 'Sign Up' %}">
+    <input class="btn btn-primary" type="submit" value="{{ button_value }}">
 </form>
 {% endblock %}

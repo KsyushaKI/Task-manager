@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG') 
 
 ALLOWED_HOSTS = [
     'webserver',
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'task_manager',
     'task_manager.users',
+    'task_manager.statuses',
+    'task_manager.labels',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
