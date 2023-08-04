@@ -215,7 +215,7 @@ msgstr "Вернуться на главную"
 
 #: templates/apps_forms.html:11
 msgid "Change Password"
-msgstr "Изменение пароля"
+msgstr "Изменить пароль"
 
 #: templates/apps_forms.html:18 templates/confirm_delete.html:10
 msgid "Cancel"
@@ -267,7 +267,7 @@ msgstr "Да, удалить"
 
 #: templates/index.html:11
 msgid "Hello"
-msgstr "Приветствуем"
+msgstr "Привет"
 
 #: templates/index.html:13
 msgid "Welcome to the 'Task Manager' app"

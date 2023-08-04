@@ -25,9 +25,6 @@ migrate:
 makemigrations:
 	@$(MANAGE) makemigrations
 
-shell:
-	@$(MANAGE) shell_plus --ipython
-
 lint:
 	@poetry run flake8 task_manager
 
