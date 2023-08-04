@@ -7,5 +7,6 @@
 <form method="post">
     {% csrf_token %}
     <input class="btn btn-danger" type="submit" value="{% trans 'Yes, delete' %}">
+    <input class="btn btn-primary" type="button" value="{% trans 'Cancel' %}" onclick="history.back();">
 </form>
 {% endblock %}

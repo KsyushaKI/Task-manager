@@ -6,20 +6,17 @@ from django.utils.translation import gettext_lazy as _
 
 
 class IndexView(TemplateView):
-
     template_name = 'index.html'
 
 
 class SignIn(SuccessMessageMixin, LoginView):
-
     template_name = 'apps_forms.html'
     extra_context = {'title': _('Authorization'), 'button_value': _('Log In')}
     success_message = _('Successfully login')
 
 
-class LogOut(SuccessMessageMixin, LogoutView):
+class LogOut(LogoutView):
 
     def dispatch(self, request, *args, **kwargs):
-        response = super().dispatch(request, *args, **kwargs)
         messages.info(request, _('Successfully logout'))
-        return response
+        return super().dispatch(request, *args, **kwargs)
