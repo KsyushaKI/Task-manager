@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-04 15:40+0300\n"
+"POT-Creation-Date: 2023-08-06 17:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,11 +77,11 @@ msgstr "Метка успешно удалена"
 msgid "Unable to delete the label because it is being used"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: settings.py:106
+#: settings.py:114
 msgid "English"
 msgstr ""
 
-#: settings.py:107
+#: settings.py:115
 msgid "Russian"
 msgstr "Русский"
 
@@ -229,7 +229,7 @@ msgstr ""
 "Менеджер задач – система управления задачами. Она позволяет ставить задачи, "
 "назначать исполнителей и менять их статусы."
 
-#: templates/base.html:15 templates/base.html:21
+#: templates/base.html:15 templates/base.html:21 templates/index.html:8
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
@@ -265,13 +265,13 @@ msgstr "Вы уверены, что хотите удалить"
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: templates/index.html:11
-msgid "Hello"
-msgstr "Привет"
+#: templates/index.html:9
+msgid "Simple and flexible task management web application"
+msgstr "Простое и гибкое веб-приложение для управления задачами"
 
-#: templates/index.html:13
-msgid "Welcome to the 'Task Manager' app"
-msgstr "Добро пожаловать в приложение 'Менеджер задач'"
+#: templates/index.html:19
+msgid "Get Started"
+msgstr "Начать"
 
 #: templates/labels/labels_list.html:13
 #: templates/statuses/statuses_list.html:13 templates/tasks/tasks_list.html:16
@@ -292,27 +292,19 @@ msgstr "Изменить"
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/pagination.html:8
+#: templates/pagination.html:9
 msgid "First"
 msgstr "Первая"
 
-#: templates/pagination.html:9
+#: templates/pagination.html:10
 msgid "Previous"
 msgstr "Предыдущая"
 
-#: templates/pagination.html:13
-msgid "Page"
-msgstr "Страница"
-
-#: templates/pagination.html:13
-msgid "of"
-msgstr "из"
-
-#: templates/pagination.html:17
+#: templates/pagination.html:22
 msgid "Next"
 msgstr "Следующая"
 
-#: templates/pagination.html:18
+#: templates/pagination.html:23
 msgid "Last"
 msgstr "Последняя"
 
@@ -419,3 +411,15 @@ msgstr "Вы залогинены"
 #: views.py:21
 msgid "Successfully logout"
 msgstr "Вы разлогинены"
+
+#~ msgid "Hello"
+#~ msgstr "Привет"
+
+#~ msgid "Welcome to the 'Task Manager' app"
+#~ msgstr "Добро пожаловать в приложение 'Менеджер задач'"
+
+#~ msgid "Page"
+#~ msgstr "Страница"
+
+#~ msgid "of"
+#~ msgstr "из"

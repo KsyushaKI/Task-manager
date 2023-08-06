@@ -9,7 +9,7 @@ class CustomLoginRequiredMixin(LoginRequiredMixin):
     login_required_error_message = _('You are not authenticated! Please log in.')
 
     def handle_no_permission(self):
-        messages.warning(self.request, self.login_required_error_message, extra_tags='danger')
+        messages.error(self.request, self.login_required_error_message, extra_tags='danger')
         return redirect('login')
 
 
@@ -24,7 +24,7 @@ class DeleteMixin():
             return redirect(self.success_url)
 
         except ProtectedError:
-            messages.warning(self.request, self.error_delete_message, extra_tags='danger')
+            messages.error(self.request, self.error_delete_message, extra_tags='danger')
             return redirect(self.success_url)
 
 
@@ -36,7 +36,7 @@ class ObjectCreatorRequiredMixin(AccessMixin):
 
     def dispatch(self, request, *args, **kwargs):
         if request.user != self.get_object_creator():
-            messages.warning(request, self.creator_required_error_message, extra_tags='danger')
+            messages.error(request, self.creator_required_error_message, extra_tags='danger')
             return redirect(self.success_url)
 
         return super().dispatch(request, *args, **kwargs)
