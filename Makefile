@@ -11,8 +11,6 @@ start:
 test:
 	@$(MANAGE) test
 
-setup: db-clean install migrate
-
 install:
 	@poetry install
 
