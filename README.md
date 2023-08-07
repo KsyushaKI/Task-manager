@@ -3,7 +3,7 @@
 <p>Task Manager is a task management system. It allows you to set tasks, assign performers and change their statuses. To work with the system registration and authentication are required.</p>
 <p>Follow the following link to try: <a href="https://task-manager-52.up.railway.app/">Task manager</a></p>
 
-[![Actions Status](https://github.com/KsyushaKI/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/KsyushaKI/Task-manager/actions)
+[![Actions Status](https://github.com/KsyushaKI/Task-manager/workflows/hexlet-check/badge.svg)](https://github.com/KsyushaKI/Task-manager/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7024875e757c3364021a/maintainability)](https://codeclimate.com/github/KsyushaKI/Task-manager/maintainability)
 
 </div>
@@ -77,4 +77,4 @@ When the tasks become numerous, it becomes difficult to navigate through them. F
 This is the fourth and **final** training project of the ["Python Developer"](https://ru.hexlet.io/programs/python) course on [Hexlet.io](https://hexlet.io)
 
 > GitHub [@KsyushaKI](https://github.com/KsyushaKI) &nbsp;&middot;&nbsp;
-> LinkedIn [@Oksana Karshakevich](https://www.linkedin.com/in/oksana-karshakevich-097663243/)
+> LinkedIn [@Oksana Karshakevich](https://www.linkedin.com/in/oksana-karshakevich/)
