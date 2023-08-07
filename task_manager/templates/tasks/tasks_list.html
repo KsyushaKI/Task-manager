@@ -1,4 +1,4 @@
-{% extends "pagination.html" %}
+{% extends "base.html" %}
 {% load i18n %}
 
 {% block content %}
@@ -6,8 +6,7 @@
 
 <h4><a href="{% url 'task_create' %}">{% trans 'Create task' %}</a></h4>
 
-{% block filter %}
-{% endblock %}
+{% include "tasks/tasks_filter.html" %}
 
 <table class="table table-striped">
 <thead>
@@ -42,5 +41,7 @@
     {% endfor %}
 </tbody>
 </table>
+
+{% include "pagination.html" %}
 
 {% endblock %}

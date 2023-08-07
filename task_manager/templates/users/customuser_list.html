@@ -1,4 +1,4 @@
-{% extends "pagination.html" %}
+{% extends "base.html" %}
 {% load i18n %}
 
 {% block content %}
@@ -35,8 +35,9 @@
 
     </tr>
     {% endfor %}
-
 </tbody>
 </table>
+
+{% include "pagination.html" %}
 
 {% endblock %}

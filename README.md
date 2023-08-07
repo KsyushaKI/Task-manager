@@ -1,10 +1,10 @@
 <div align="center">
-<h1><a href="https://python-project-52-production-b374.up.railway.app">Task manager</h1>
+<h1><a href="https://task-manager-52.up.railway.app/">Task manager</h1>
 <p>Task Manager is a task management system. It allows you to set tasks, assign performers and change their statuses. To work with the system registration and authentication are required.</p>
-<p>Follow the following link to try: <a href="https://python-project-52-production-b374.up.railway.app">Task manager</a></p>
+<p>Follow the following link to try: <a href="https://task-manager-52.up.railway.app/">Task manager</a></p>
 
-[![Actions Status](https://github.com/KsyushaKI/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/KsyushaKI/python-project-52/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/89ed0ab714e745ba6692/maintainability)](https://codeclimate.com/github/KsyushaKI/python-project-52/maintainability)
+[![Actions Status](https://github.com/KsyushaKI/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/KsyushaKI/Task-manager/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7024875e757c3364021a/maintainability)](https://codeclimate.com/github/KsyushaKI/Task-manager/maintainability)
 
 </div>
 
@@ -19,7 +19,7 @@ The frontend is rendered on the backend. This means that the page is built by th
 
 [PostgreSQL](https://www.postgresql.org/) is used as the object-relational database system.
 
-[Website](https://python-project-52-production-b374.up.railway.app)
+[Website](https://task-manager-52.up.railway.app/)
 
 ### Features
 

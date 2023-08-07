@@ -76,14 +76,25 @@
     {% endblock %}
 
     {% block pagination %}
-    {% endblock %}
+    {% endblock pagination%}
 
     </div>
-
+    {% block footer %}
     <footer>
         <div class="container my-5 pt-4 border-top">
-            <a target="_blank" href="https://github.com/KsyushaKI">GitHub | KsyushaKI</a>
+            <div class="row justify-content-sm-center">
+                <div class="col-sm-auto">
+                    <a target="_blank" href="https://github.com/KsyushaKI">GitHub | KsyushaKI</a>
+                </div>
+                <div class="col-sm-auto">
+                    <img class='ml-2' src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub" height="16px">
+                </div>
+                <div class="col-sm-auto">
+                    <a target="_blank" href="https://github.com/KsyushaKI/Task-manager">Task manager</a>
+                </div>
+            </div>
         </div>
     </footer>
+    {% endblock footer%}
   </body>
 </html>

@@ -13,6 +13,7 @@ class TasksListView(CustomLoginRequiredMixin, FilterView):
     paginate_by = 10
     ordering = ['id']
     filterset_class = TasksFilter
+    template_name = 'tasks/tasks_list.html'
 
 
 class TaskDetailView(CustomLoginRequiredMixin, DetailView):
